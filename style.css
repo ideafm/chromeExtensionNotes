@@ -1,0 +1,61 @@
+body {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    min-height: 150px;
+}
+#list {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+#list li {
+    min-height: 30px;
+    margin: 3px 0;
+    border: 1px solid #cccccc;
+    position: relative;
+}
+#list li .text {
+    min-height: 30px;
+    font-size: 12px;
+    padding: 6px 20px 0 10px;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+.highlight {
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-radius: 4px;
+}
+.delete-item {
+    font-size: 21px;
+    width: 20px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.break {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+.empty-block {
+    font-size: 30px;
+    margin: 10px auto;
+    padding: 15px 0;
+    text-align: center;
+
+}
+nav a {
+    width: 138px;
+}
+nav {
+    text-align: center;
+    margin-bottom: 10px;
+}

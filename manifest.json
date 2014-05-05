@@ -1,0 +1,23 @@
+{
+    "name": "Notes",
+    "description": "Заметки",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "tabs",
+        "windows"
+    ],
+    "background": {
+        "page": "index.html"
+    },
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png"
+    },
+    "browser_action": {
+        "default_title": "Заметки",
+        "default_icon": "icon19.png",
+        "default_popup": "index.html"
+    },
+    "manifest_version": 2
+}

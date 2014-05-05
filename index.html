@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="notes">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="angular.min.js"></script>
+    <script src="angular-sanitize.min.js"></script>
+    <script src="jquery-1.11.0.min.js"></script>
+    <script src="main.js"></script>
+
+</head>
+<body ng-controller="mainCtrl">
+    <nav>
+        <a href="javascript:void(0)" ng-click="searchToggle(false)" class="btn btn-xs" ng-class="{'btn-primary':!searchVisibility, 'btn-default':searchVisibility}">Добавить</a>
+        <a href="javascript:void(0)" ng-click="searchToggle(true)" class="btn btn-xs" ng-class="{'btn-primary':searchVisibility, 'btn-default':!searchVisibility}">Найти</a>
+    </nav>
+    <form ng-show="!searchVisibility" class="form-inline" ng-submit="addNote()" style="text-align: center;">
+        <input type="text" id="add-note" ng-model="addNoteText" class="form-control input-sm" placeholder="Добавить заметку" tabindex=1 style="width: 100%;"/>
+    </form>
+    <div ng-show="searchVisibility">
+        <input type="text" id="search-note" class="form-control input-sm" placeholder="Поиск" ng-model="searchNote"/>
+    </div>
+    <div ng-if="items.length == 0 || count.length == 0" class="highlight empty-block">
+        empty
+    </div>
+    <ul id="list" class="list-unstyled">
+        <li ng-repeat="item in count = (items | reverse | filter: searchNote) track by $index" class="highlight">
+            <div ng-dblclick="visibility=!visibility" ng-show="visibility" class="text break" ng-bind-html="item.text"></div>
+            <button ng-show="visibility" ng-click="deleteItem(item.id)" class="close delete-item" >&times;</button>
+            <span ng-show="!visibility">
+                <input type="text" class=" form-control input-sm" ng-model="enteredText" ng-blur="visibility=!visibility" focus-me="!visibility"/>
+            </span>
+        </li>
+    </ul>
+    <div>
+        <a href="javascript:void(0)" ng-if="items.length != 0" ng-click="clearList()" style="font-size: 11px; display: inline-block; width: 49%;">delete all</a>
+        <span ng-if="items.length != 0" style="font-size: 11px; display: inline-block; width: 49%; text-align:right;">Заполнено на {{percentOfPlace}}%</span>
+    </div>
+</body>
+
+</html>
